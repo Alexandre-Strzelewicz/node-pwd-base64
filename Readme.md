@@ -1,12 +1,12 @@
 
 # pwd
 
-  Hash and compare passwords with the crypto's pbkdf2.
+  Hash and compare passwords with the crypto's pbkdf2 and return hashed password in base64.
   
 # Installation
 
 ```bash
-$ npm install pwd
+$ npm install pwd-base64
 ```
 
 # Example

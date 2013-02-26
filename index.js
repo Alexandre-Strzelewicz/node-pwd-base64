@@ -50,20 +50,25 @@ exports.iterations = function(n){
  * @param {Function} callback
  * @api public
  */
-
 exports.hash = function(pwd, salt, fn){
   if (3 == arguments.length) {
     if (!pwd) return fn(new Error('password missing'));
     if (!salt) return fn(new Error('salt missing'));
-    crypto.pbkdf2(pwd, salt, iterations, len, fn);
+
+    crypto.pbkdf2(pwd, salt, iterations, len, function(err, hash) {
+      if (err) return fn(err);
+      hash = new Buffer(hash, 'binary').toString('base64');
+      fn(null, hash);
+    });
   } else {
     fn = salt;
     if (!pwd) return fn(new Error('password missing'));
     crypto.randomBytes(len, function(err, salt){
       if (err) return fn(err);
       salt = salt.toString('base64');
-      crypto.pbkdf2(pwd, salt, iterations, len, function(err, hash){
+      crypto.pbkdf2(pwd, salt, iterations, len, function(err, hash){        
         if (err) return fn(err);
+        hash = new Buffer(hash, 'binary').toString('base64');
         fn(null, salt, hash);
       });
     });
