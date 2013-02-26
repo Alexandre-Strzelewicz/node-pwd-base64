@@ -1,14 +1,17 @@
 {
-  "name": "pwd-base64",
-  "version": "0.0.2",
-  "description": "Hash and compare passwords with pbkdf2 with hash in base64",
-  "keywords": ["pass", "auth", "password", "authentication"],
-  "author": "Alexandre Strzelewicz <strzelewicz.alexandre@gmail.com>",
-  "dependencies": {},
-  "devDependencies": {
-    "mocha": "*",
-    "should": "*"
-  },
-  "repository": "git://github.com/Alexandre-Strzelewicz/node-pwd-base64.git",
-  "main": "index"
+    "name": "pwd-base64",
+    "version": "0.0.2",
+    "description": "Hash and compare passwords with pbkdf2 with hash in base64",
+    "keywords": ["pass", "auth", "password", "authentication"],
+    "author": "Alexandre Strzelewicz <strzelewicz.alexandre@gmail.com>",
+    "dependencies": {},
+    "devDependencies": {
+	"mocha": "*",
+	"should": "*"
+    },
+    "repository": "git://github.com/Alexandre-Strzelewicz/node-pwd-base64.git",
+    "main": "index",
+    "scripts" : {
+	"test" : "./node_modules/.bin/mocha"
+    }
 }
